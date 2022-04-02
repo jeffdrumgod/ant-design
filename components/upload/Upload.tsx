@@ -297,7 +297,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     upload: upload.current,
   }));
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, iconPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
@@ -323,7 +323,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
@@ -422,7 +422,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   }
 
   return wrapSSR(
-    <span className={classNames(className, hashId)}>
+    <span className={classNames(`${prefixCls}-wrapper`, className, hashId)}>
       {renderUploadButton(children ? undefined : { display: 'none' })}
       {renderUploadList()}
     </span>,
