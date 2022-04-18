@@ -86,7 +86,7 @@ const ListItem = React.forwardRef(
     }, []);
 
     const iconNode = iconRender(file);
-    let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
+    let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card') {
       if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
         const uploadingClassName = classNames({

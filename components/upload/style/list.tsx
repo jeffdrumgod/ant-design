@@ -18,12 +18,16 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           height: token.lineHeight * token.fontSizeBase,
           marginTop: token.marginXS,
           fontSize: token.fontSizeBase,
+          display: 'flex',
+          alignItems: 'center',
+          transition: `background-color ${token.motionDurationSlow}`,
+
+          '&:hover': {
+            backgroundColor: token.colorBgComponentSecondary,
+          },
 
           [`${itemCls}-name`]: {
-            display: 'inline-block',
-            width: '100%',
-            padding: `0 ${token.paddingXS}`,
-            margin: 0,
+            padding: `0 ${token.paddingXS}px`,
             overflow: 'hidden',
             lineHeight: token.lineHeight,
             whiteSpace: 'nowrap',
@@ -62,69 +66,44 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             },
           },
 
-          [`${itemCls}-info`]: {
-            height: '100%',
-            padding: '0 4px',
-            transition: `background-color ${token.motionDurationSlow}`,
-            display: 'flex',
-            alignItems: 'center',
-
-            [`${componentCls}-text-icon ${iconCls}`]: {
-              position: 'absolute',
-              top: token.fontSizeBase / 2 - 2,
-              color: token.colorTextSecondary,
-              fontSize: token.fontSizeBase,
-            },
+          [`${componentCls}-icon ${iconCls}`]: {
+            color: token.colorTextSecondary,
+            fontSize: token.fontSizeBase,
           },
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
             bottom: '-12px',
             width: '100%',
-            paddingLeft: token.fontSizeBase + 12,
+            paddingLeft: token.fontSizeBase + token.paddingXS,
             fontSize: token.fontSizeBase,
             lineHeight: 0,
           },
         },
 
-        [`${itemCls}:hover ${itemCls}-info`]: {
-          backgroundColor: token.controlItemBgHover,
-        },
-
-        [`
-        ${itemCls}:hover ${actionCls}
-        `]: {
+        [`${itemCls}:hover ${actionCls}`]: {
           opacity: 1,
           color: token.colorText,
         },
 
-        [`
-        ${itemCls}-error,
-        ${itemCls}-error ${componentCls}-text-icon > ${iconCls},
-        ${itemCls}-error ${itemCls}-name
-      `]: {
-          color: token.colorError,
-        },
-
-        [`${itemCls}-error ${actionsCls}`]: {
-          [iconCls]: {
+        [`${itemCls}-error`]: {
+          [`${itemCls}-name, ${componentCls}-icon ${iconCls}`]: {
             color: token.colorError,
           },
 
-          [actionCls]: {
-            opacity: 1,
+          [actionsCls]: {
+            [iconCls]: {
+              color: token.colorError,
+            },
+
+            [actionCls]: {
+              opacity: 1,
+            },
           },
         },
 
         [`${componentCls}-list-container`]: {
           transition: `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-
-          '&::before': {
-            display: 'table',
-            width: 0,
-            height: 0,
-            content: '""',
-          },
         },
       },
     },
