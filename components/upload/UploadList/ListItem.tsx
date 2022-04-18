@@ -165,7 +165,7 @@ const ListItem = React.forwardRef(
       </span>
     );
     const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
-    const preview = file.url
+    const fileName = file.url
       ? [
           <a
             key="view"
@@ -196,6 +196,7 @@ const ListItem = React.forwardRef(
       pointerEvents: 'none',
       opacity: 0.5,
     };
+
     const previewIcon = showPreviewIcon ? (
       <a
         href={file.url || file.thumbUrl}
@@ -211,7 +212,7 @@ const ListItem = React.forwardRef(
       </a>
     ) : null;
 
-    const actions = listType === 'picture-card' && file.status !== 'uploading' && (
+    const pictureCardActions = listType === 'picture-card' && file.status !== 'uploading' && (
       <span className={`${prefixCls}-list-item-actions`}>
         {previewIcon}
         {file.status === 'done' && downloadIcon}
@@ -219,25 +220,14 @@ const ListItem = React.forwardRef(
       </span>
     );
 
-    let message;
-    if (file.response && typeof file.response === 'string') {
-      message = file.response;
-    } else {
-      message = file.error?.statusText || file.error?.message || locale.uploadError;
-    }
-    const iconAndPreview = (
-      <>
-        {icon}
-        {preview}
-      </>
-    );
     const { getPrefixCls } = React.useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
       <div className={infoUploadingClass}>
-        <div className={`${prefixCls}-list-item-info`}>{iconAndPreview}</div>
-        {actions}
+        {icon}
+        {fileName}
+        {pictureCardActions}
         {showProgress && (
           <CSSMotion
             motionName={`${rootPrefixCls}-fade`}
@@ -262,6 +252,10 @@ const ListItem = React.forwardRef(
       </div>
     );
 
+    const message =
+      file.response && typeof file.response === 'string'
+        ? file.response
+        : file.error?.statusText || file.error?.message || locale.uploadError;
     const item =
       file.status === 'error' ? (
         <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>

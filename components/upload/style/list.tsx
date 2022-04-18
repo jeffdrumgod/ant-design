@@ -66,12 +66,8 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             height: '100%',
             padding: '0 4px',
             transition: `background-color ${token.motionDurationSlow}`,
-
-            '> span': {
-              display: 'block',
-              width: '100%',
-              height: '100%',
-            },
+            display: 'flex',
+            alignItems: 'center',
 
             [`${componentCls}-text-icon ${iconCls}`]: {
               position: 'absolute',
