@@ -85,10 +85,6 @@ const ListItem = React.forwardRef(
       };
     }, []);
 
-    // This is used for legacy span make scrollHeight the wrong value.
-    // We will force these to be `display: block` with non `picture-card`
-    const spanClassName = `${prefixCls}-span`;
-
     const iconNode = iconRender(file);
     let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card') {
@@ -230,10 +226,10 @@ const ListItem = React.forwardRef(
       message = file.error?.statusText || file.error?.message || locale.uploadError;
     }
     const iconAndPreview = (
-      <span className={spanClassName}>
+      <>
         {icon}
         {preview}
-      </span>
+      </>
     );
     const { getPrefixCls } = React.useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
@@ -265,7 +261,7 @@ const ListItem = React.forwardRef(
         )}
       </div>
     );
-    const listContainerNameClass = classNames(`${prefixCls}-list-${listType}-container`, className);
+
     const item =
       file.status === 'error' ? (
         <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
@@ -276,7 +272,7 @@ const ListItem = React.forwardRef(
       );
 
     return (
-      <div className={listContainerNameClass} style={style} ref={ref}>
+      <div className={classNames(`${prefixCls}-list-container`, className)} style={style} ref={ref}>
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),

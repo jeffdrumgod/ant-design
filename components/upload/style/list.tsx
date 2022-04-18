@@ -22,17 +22,16 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           [`${itemCls}-name`]: {
             display: 'inline-block',
             width: '100%',
-            paddingLeft: token.fontSizeBase + token.paddingXS,
+            padding: `0 ${token.paddingXS}`,
+            margin: 0,
             overflow: 'hidden',
             lineHeight: token.lineHeight,
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
+            flex: 'auto',
           },
 
           [actionsCls]: {
-            position: 'absolute',
-            right: 0,
-
             [actionCls]: {
               opacity: 0,
             },
@@ -118,6 +117,17 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [actionCls]: {
             opacity: 1,
+          },
+        },
+
+        [`${componentCls}-list-container`]: {
+          transition: `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
+
+          '&::before': {
+            display: 'table',
+            width: 0,
+            height: 0,
+            content: '""',
           },
         },
       },

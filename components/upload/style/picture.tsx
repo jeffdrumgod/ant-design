@@ -147,7 +147,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
       // list
       [`${listCls}${listCls}-picture-card`]: {
-        [`${listCls}-picture-card-container`]: {
+        [`${listCls}-container`]: {
           display: 'inline-block',
           width: token.uploadPictureCardSize,
           height: token.uploadPictureCardSize,
