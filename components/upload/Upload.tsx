@@ -369,6 +369,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       button
     );
 
+  const rtlCls = {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  };
+
   if (type === 'drag') {
     const dragCls = classNames(
       prefixCls,
@@ -382,7 +386,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       hashId,
     );
     return wrapSSR(
-      <span className={classNames(`${prefixCls}-wrapper`, className, hashId)}>
+      <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
         <div
           className={dragCls}
           onDrop={onFileDrop}
@@ -399,11 +403,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     );
   }
 
-  const uploadButtonCls = classNames(prefixCls, {
-    [`${prefixCls}-select`]: true,
-    [`${prefixCls}-select-${listType}`]: true,
+  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
@@ -418,6 +419,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         className={classNames(
           `${prefixCls}-wrapper`,
           `${prefixCls}-picture-card-wrapper`,
+          rtlCls,
           className,
           hashId,
         )}
@@ -428,7 +430,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   }
 
   return wrapSSR(
-    <span className={classNames(`${prefixCls}-wrapper`, className, hashId)}>
+    <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
       {renderUploadButton(children ? undefined : { display: 'none' })}
       {renderUploadList()}
     </span>,

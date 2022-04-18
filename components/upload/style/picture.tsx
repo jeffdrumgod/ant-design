@@ -114,12 +114,12 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   const itemCls = `${listCls}-item`;
 
   return {
-    [`${componentCls}-wrapper${componentCls}-picture-card-wrapper`]: {
+    [`${componentCls}-wrapper:is(${componentCls}-picture-card-wrapper)`]: {
       ...clearFix(),
       display: 'inline-block',
       width: '100%',
 
-      [`${componentCls}${componentCls}-select-picture-card`]: {
+      [`${componentCls}${componentCls}-select`]: {
         width: token.uploadPictureCardSize,
         height: token.uploadPictureCardSize,
         marginRight: token.marginXS,
@@ -140,7 +140,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           textAlign: 'center',
         },
 
-        [`${componentCls}-select-picture-card:not(${componentCls}-disabled):hover`]: {
+        [`&:not(${componentCls}-disabled):hover`]: {
           borderColor: token.colorPrimary,
         },
       },
