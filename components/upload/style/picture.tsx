@@ -9,7 +9,8 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
   return {
     [`${componentCls}-wrapper`]: {
-      [`${listCls}-picture, ${listCls}-picture-card`]: {
+      // ${listCls} 增加优先级
+      [`${listCls}${listCls}-picture, ${listCls}${listCls}-picture-card`]: {
         [itemCls]: {
           position: 'relative',
           height: '66px',
@@ -17,91 +18,58 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           border: `${token.controlLineWidth}px ${token.uploadPictureCardBorderStyle} ${token.colorBorder}`,
           borderRadius: token.radiusBase,
 
-          [`${itemCls}-info`]: {
-            padding: 0,
+          '&:hover': {
+            background: 'transparent',
+          },
+
+          [`${itemCls}-thumbnail`]: {
+            width: '48px',
+            height: '48px',
+            lineHeight: '60px',
+            textAlign: 'center',
+            opacity: 0.8,
+            flex: 'none',
+
+            [iconCls]: {
+              fontSize: 26,
+            },
+
+            img: {
+              display: 'block',
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden',
+            },
+          },
+
+          [`${itemCls}-progress`]: {
+            bottom: '14px',
+            width: 'calc(100% - 24px)',
+            marginTop: 0,
+            paddingLeft: '56px',
           },
         },
 
         [`${itemCls}-error`]: {
           borderColor: token.colorError,
-        },
 
-        [`${itemCls}:hover ${itemCls}-info`]: {
-          background: 'transparent',
+          // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
+          [`${itemCls}-thumbnail ${iconCls}`]: {
+            [`svg path[fill='#e6f7ff']`]: {
+              fill: token.colorBgError,
+            },
+            [`svg path[fill='#1890ff']`]: {
+              fill: token.colorError,
+            },
+          },
         },
 
         [`${itemCls}-uploading`]: {
           borderStyle: 'dashed',
-        },
 
-        [`${itemCls}-thumbnail`]: {
-          width: '48px',
-          height: '48px',
-          lineHeight: '60px',
-          textAlign: 'center',
-          opacity: 0.8,
-
-          [iconCls]: {
-            fontSize: 26,
+          [`${itemCls}-name`]: {
+            marginBottom: '12px',
           },
-
-          img: {
-            display: 'block',
-            width: '48px',
-            height: '48px',
-            overflow: 'hidden',
-          },
-        },
-
-        // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
-        [`${itemCls}-error ${itemCls}-thumbnail ${iconCls}`]: {
-          [`svg path[fill='#e6f7ff']`]: {
-            fill: token.colorBgError,
-          },
-          [`svg path[fill='#1890ff']`]: {
-            fill: token.colorError,
-          },
-        },
-
-        [`${itemCls}-icon`]: {
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          fontSize: '26px',
-          transform: 'translate(-50%, -50%)',
-
-          [iconCls]: {
-            fontSize: '26px',
-          },
-        },
-
-        [`${itemCls}-image`]: {
-          maxWidth: '100%',
-        },
-
-        [`${itemCls}-name`]: {
-          display: 'inline-block',
-          boxSizing: 'border-box',
-          maxWidth: '100%',
-          margin: '0 0 0 8px',
-          paddingRight: '8px',
-          paddingLeft: '48px',
-          overflow: 'hidden',
-          lineHeight: '44px',
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
-          transition: `all ${token.motionDurationSlow}`,
-        },
-
-        [`${itemCls}-uploading ${itemCls}-name`]: {
-          marginBottom: '12px',
-        },
-
-        [`${itemCls}-progress`]: {
-          bottom: '14px',
-          width: 'calc(100% - 24px)',
-          marginTop: 0,
-          paddingLeft: '56px',
         },
       },
     },
@@ -114,7 +82,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   const itemCls = `${listCls}-item`;
 
   return {
-    [`${componentCls}-wrapper:is(${componentCls}-picture-card-wrapper)`]: {
+    [`${componentCls}-wrapper${componentCls}-picture-card-wrapper`]: {
       ...clearFix(),
       display: 'inline-block',
       width: '100%',

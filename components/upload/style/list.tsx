@@ -23,7 +23,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           transition: `background-color ${token.motionDurationSlow}`,
 
           '&:hover': {
-            backgroundColor: token.colorBgComponentSecondary,
+            backgroundColor: token.controlItemBgHover,
           },
 
           [`${itemCls}-name`]: {
@@ -33,6 +33,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             flex: 'auto',
+            transition: `all ${token.motionDurationSlow}`,
           },
 
           [actionsCls]: {
@@ -87,12 +88,13 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         },
 
         [`${itemCls}-error`]: {
+          color: token.colorError,
           [`${itemCls}-name, ${componentCls}-icon ${iconCls}`]: {
             color: token.colorError,
           },
 
           [actionsCls]: {
-            [iconCls]: {
+            [`${iconCls}, ${iconCls}:hover`]: {
               color: token.colorError,
             },
 
