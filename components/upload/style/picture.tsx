@@ -8,7 +8,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   const itemCls = `${listCls}-item`;
 
   return {
-    [`${componentCls}-wrapper${componentCls}-picture-card-wrapper`]: {
+    [`${componentCls}-wrapper`]: {
       [`${listCls}-picture, ${listCls}-picture-card`]: {
         [itemCls]: {
           position: 'relative',
@@ -147,7 +147,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
       // list
       [`${listCls}${listCls}-picture-card`]: {
-        [`${listCls}-container`]: {
+        [`${listCls}-item-container`]: {
           display: 'inline-block',
           width: token.uploadPictureCardSize,
           height: token.uploadPictureCardSize,
@@ -234,8 +234,9 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-file + ${itemCls}-name`]: {
           position: 'absolute',
-          bottom: '10px',
+          bottom: '18px',
           display: 'block',
+          width: 'calc(100% - 16px)',
         },
 
         [`${itemCls}-uploading`]: {
@@ -254,7 +255,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-progress`]: {
           bottom: '32px',
-          width: 'calc(100% - 14px)',
+          width: 'calc(100% - 16px)',
           paddingLeft: '0',
         },
       },

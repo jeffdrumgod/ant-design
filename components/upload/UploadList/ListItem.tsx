@@ -123,11 +123,10 @@ const ListItem = React.forwardRef(
       }
     }
 
-    const infoUploadingClass = classNames({
-      [`${prefixCls}-list-item`]: true,
-      [`${prefixCls}-list-item-${file.status}`]: true,
-      [`${prefixCls}-list-item-list-type-${listType}`]: true,
-    });
+    const listItemClassName = classNames(
+      `${prefixCls}-list-item`,
+      `${prefixCls}-list-item-${file.status}`,
+    );
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
@@ -224,7 +223,7 @@ const ListItem = React.forwardRef(
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
-      <div className={infoUploadingClass}>
+      <div className={listItemClassName}>
         {icon}
         {fileName}
         {pictureCardActions}
@@ -266,7 +265,11 @@ const ListItem = React.forwardRef(
       );
 
     return (
-      <div className={classNames(`${prefixCls}-list-container`, className)} style={style} ref={ref}>
+      <div
+        className={classNames(`${prefixCls}-list-item-container`, className)}
+        style={style}
+        ref={ref}
+      >
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),

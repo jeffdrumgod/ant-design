@@ -102,7 +102,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
         },
 
-        [`${componentCls}-list-container`]: {
+        [`${componentCls}-list-item-container`]: {
           transition: `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
         },
       },
