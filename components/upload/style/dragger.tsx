@@ -43,13 +43,13 @@ const genDraggerStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           marginBottom: 20,
 
           [iconCls]: {
-            color: token['blue-5'],
+            color: token.colorPrimary,
             fontSize: 48,
           },
         },
 
         [`p${componentCls}-text`]: {
-          margin: '0 0 4px',
+          margin: `0 0 ${token.marginXXS}px`,
           color: token.colorTextHeading,
           fontSize: token.fontSizeLG,
         },

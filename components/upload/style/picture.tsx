@@ -165,7 +165,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
             zIndex: 10,
             width: 16,
-            margin: 16,
+            margin: `0 ${token.marginXXS}px`,
             fontSize: 16,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
@@ -214,7 +214,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         },
 
         [`${itemCls}-progress`]: {
-          bottom: '32px',
+          bottom: 32,
           width: `calc(100% - ${token.paddingXS * 2}px)`,
           paddingLeft: 0,
         },

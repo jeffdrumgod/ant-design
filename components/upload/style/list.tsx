@@ -42,7 +42,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             },
 
             [`${actionCls}${antCls}-btn-sm`]: {
-              height: '20px',
+              height: 20,
               lineHeight: 1,
               // FIXME: should not override small button
               '> span': {
