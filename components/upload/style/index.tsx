@@ -4,6 +4,7 @@ import { genComponentStyleHook, resetComponent } from '../../_util/theme';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';
+import genRtlStyle from './rtl';
 import { genPictureStyle, genPictureCardStyle } from './picture';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
@@ -48,6 +49,7 @@ export default genComponentStyleHook(
     genPictureCardStyle(token),
     genListStyle(token),
     genMotionStyle(token, hashId),
+    genRtlStyle(token),
   ],
   token => ({
     uploadPictureCardSize: 104,

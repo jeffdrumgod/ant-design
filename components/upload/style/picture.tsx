@@ -49,7 +49,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             bottom: 14,
             width: 'calc(100% - 24px)',
             marginTop: 0,
-            paddingLeft: 56,
+            paddingInlineStart: 56,
           },
         },
 
@@ -93,7 +93,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
       [`${componentCls}${componentCls}-select`]: {
         width: token.uploadPictureCardSize,
         height: token.uploadPictureCardSize,
-        marginRight: token.marginXS,
+        marginInlineEnd: token.marginXS,
         marginBottom: token.marginXS,
         textAlign: 'center',
         verticalAlign: 'top',
@@ -122,7 +122,8 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           display: 'inline-block',
           width: token.uploadPictureCardSize,
           height: token.uploadPictureCardSize,
-          margin: `0 ${token.marginXS}px ${token.marginXS}px 0`,
+          marginBlock: `0 ${token.marginXS}px`,
+          marginInline: `0 ${token.marginXS}px`,
           verticalAlign: 'top',
         },
 
@@ -216,7 +217,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         [`${itemCls}-progress`]: {
           bottom: 32,
           width: `calc(100% - ${token.paddingXS * 2}px)`,
-          paddingLeft: 0,
+          paddingInlineStart: 0,
         },
       },
     },

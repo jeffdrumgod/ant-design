@@ -158,7 +158,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     handleDownload: onInternalDownload,
   }));
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
@@ -167,7 +167,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     {
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${listType}`]: true,
-      [`${prefixCls}-list-rtl`]: direction === 'rtl',
     },
     className,
   );

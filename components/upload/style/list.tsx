@@ -76,7 +76,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             position: 'absolute',
             bottom: -12,
             width: '100%',
-            paddingLeft: token.fontSizeBase + token.paddingXS,
+            paddingInlineStart: token.fontSizeBase + token.paddingXS,
             fontSize: token.fontSizeBase,
             lineHeight: 0,
           },
