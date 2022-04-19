@@ -74,7 +74,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
-            bottom: '-12px',
+            bottom: -12,
             width: '100%',
             paddingLeft: token.fontSizeBase + token.paddingXS,
             fontSize: token.fontSizeBase,
@@ -110,8 +110,8 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           // For smooth removing animation
           '&::before': {
             display: 'table',
-            width: '0',
-            height: '0',
+            width: 0,
+            height: 0,
             content: '""',
           },
         },

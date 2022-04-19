@@ -13,7 +13,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
       [`${listCls}${listCls}-picture, ${listCls}${listCls}-picture-card`]: {
         [itemCls]: {
           position: 'relative',
-          height: '66px',
+          height: 66,
           padding: token.paddingXS,
           border: `${token.controlLineWidth}px ${token.uploadPictureCardBorderStyle} ${token.colorBorder}`,
           borderRadius: token.radiusBase,
@@ -23,8 +23,8 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
 
           [`${itemCls}-thumbnail`]: {
-            width: '48px',
-            height: '48px',
+            width: 48,
+            height: 48,
             lineHeight: '60px',
             textAlign: 'center',
             opacity: 0.8,
@@ -46,10 +46,10 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
 
           [`${itemCls}-progress`]: {
-            bottom: '14px',
+            bottom: 14,
             width: 'calc(100% - 24px)',
             marginTop: 0,
-            paddingLeft: '56px',
+            paddingLeft: 56,
           },
         },
 
@@ -71,7 +71,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           borderStyle: 'dashed',
 
           [`${itemCls}-name`]: {
-            marginBottom: '12px',
+            marginBottom: 12,
           },
         },
       },
@@ -164,9 +164,9 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
             zIndex: 10,
-            width: '16px',
-            margin: '0 4px',
-            fontSize: '16px',
+            width: 16,
+            margin: 16,
+            fontSize: 16,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
           },
@@ -219,7 +219,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         [`${itemCls}-progress`]: {
           bottom: '32px',
           width: 'calc(100% - 16px)',
-          paddingLeft: '0',
+          paddingLeft: 0,
         },
       },
     },
