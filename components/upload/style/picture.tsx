@@ -137,8 +137,8 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           '&::before': {
             position: 'absolute',
             zIndex: 1,
-            width: 'calc(100% - 16px)',
-            height: 'calc(100% - 16px)',
+            width: `calc(100% - ${token.paddingXS * 2}px)`,
+            height: `calc(100% - ${token.paddingXS * 2}px)`,
             backgroundColor: new TinyColor('#000').setAlpha(0.5).toRgbString(),
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
@@ -193,17 +193,14 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-name`]: {
           display: 'none',
-          margin: '8px 0 0',
-          padding: 0,
-          lineHeight: token.lineHeight,
           textAlign: 'center',
         },
 
         [`${itemCls}-file + ${itemCls}-name`]: {
           position: 'absolute',
-          bottom: '18px',
+          bottom: 18,
           display: 'block',
-          width: 'calc(100% - 16px)',
+          width: `calc(100% - ${token.paddingXS * 2}px)`,
         },
 
         [`${itemCls}-uploading`]: {
@@ -218,7 +215,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-progress`]: {
           bottom: '32px',
-          width: 'calc(100% - 16px)',
+          width: `calc(100% - ${token.paddingXS * 2}px)`,
           paddingLeft: 0,
         },
       },
