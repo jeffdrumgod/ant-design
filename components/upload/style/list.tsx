@@ -106,6 +106,14 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${componentCls}-list-item-container`]: {
           transition: `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
+
+          // For smooth removing animation
+          '&::before': {
+            display: 'table',
+            width: '0',
+            height: '0',
+            content: '""',
+          },
         },
       },
     },
