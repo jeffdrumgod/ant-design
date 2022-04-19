@@ -29,6 +29,9 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             textAlign: 'center',
             opacity: 0.8,
             flex: 'none',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
 
             [iconCls]: {
               fontSize: 26,
