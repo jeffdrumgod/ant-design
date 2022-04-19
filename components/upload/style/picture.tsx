@@ -130,18 +130,12 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         [itemCls]: {
           height: '100%',
           margin: 0,
-        },
-
-        [`${itemCls}-info`]: {
-          position: 'relative',
-          height: '100%',
-          overflow: 'hidden',
 
           '&::before': {
             position: 'absolute',
             zIndex: 1,
-            width: '100%',
-            height: '100%',
+            width: 'calc(100% - 16px)',
+            height: 'calc(100% - 16px)',
             backgroundColor: new TinyColor('#000').setAlpha(0.5).toRgbString(),
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
@@ -149,8 +143,10 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
         },
 
-        [`${itemCls}:hover ${itemCls}-info::before`]: {
-          opacity: 1,
+        [`${itemCls}:hover`]: {
+          [`&::before, ${itemCls}-actions`]: {
+            opacity: 1,
+          },
         },
 
         [`${itemCls}-actions`]: {
@@ -167,21 +163,21 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             zIndex: 10,
             width: '16px',
             margin: '0 4px',
-            // FIXME: @text-color-dark: fade(@white, 85%);
-            color: new TinyColor('#fff').setAlpha(0.85).toRgbString(),
             fontSize: '16px',
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
+          },
+        },
 
+        [`${itemCls}-actions, ${itemCls}-actions:hover`]: {
+          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
+            // FIXME: @text-color-dark: fade(@white, 85%);
+            color: new TinyColor('#fff').setAlpha(0.85).toRgbString(),
             '&:hover': {
               // FIXME: @text-color-dark: fade(@white, 85%);
               color: '#fff',
             },
           },
-        },
-
-        [`${itemCls}-info:hover + ${itemCls}-actions, ${itemCls}-actions:hover`]: {
-          opacity: 1,
         },
 
         [`${itemCls}-thumbnail, ${itemCls}-thumbnail img`]: {
@@ -212,12 +208,8 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             backgroundColor: token.colorBgComponentSecondary,
           },
 
-          [`${itemCls}-info`]: {
-            height: 'auto',
-
-            [`&::before, ${iconCls}-eye, ${iconCls}-delete`]: {
-              display: 'none',
-            },
+          [`&::before, ${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
+            display: 'none',
           },
         },
 
