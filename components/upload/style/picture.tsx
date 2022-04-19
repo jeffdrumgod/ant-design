@@ -155,11 +155,11 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-actions`]: {
           position: 'absolute',
-          top: '50%',
-          left: '50%',
+          insetInlineStart: 0,
           zIndex: 10,
+          width: '100%',
           whiteSpace: 'nowrap',
-          transform: 'translate(-50%, -50%)',
+          textAlign: 'center',
           opacity: 0,
           transition: `all ${token.motionDurationSlow}`,
 
