@@ -297,7 +297,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     upload: upload.current,
   }));
 
-  const { getPrefixCls, iconPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
