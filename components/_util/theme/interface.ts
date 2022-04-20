@@ -11,6 +11,7 @@ import type { ComponentToken as TypographyComponentToken } from '../../typograph
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 
 export const PresetColors = [
   'blue',
@@ -81,6 +82,7 @@ export interface OverrideToken {
   Card?: {};
   Steps?: {};
   Upload?: UploadComponentToken;
+  Menu?: MenuComponentToken;
 }
 
 /** Final token which contains the components level override */
