@@ -70,7 +70,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       justifyItems: 'flex-start',
       color: token.segmentedLabelColor,
       backgroundColor: token.segmentedBg,
-      borderRadius: '2px',
+      borderRadius: token.radiusBase,
+      // FIXME: hard code
       boxShadow: `0 0 0 2px ${token.segmentedBg}`,
       transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
@@ -78,6 +79,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&:not(${componentCls}-disabled)`]: {
         '&:hover, &:focus': {
           backgroundColor: token.segmentedHoverBg,
+          // FIXME: hard code
           boxShadow: `0 0 0 2px ${token.segmentedHoverBg}`,
         },
       },
