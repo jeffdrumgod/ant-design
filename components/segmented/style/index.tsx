@@ -127,8 +127,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-input': {
           position: 'absolute',
-          top: 0,
-          left: 0,
+          insetBlockStart: 0,
+          insetInlineStart: 0,
           width: 0,
           height: 0,
           opacity: 0,
@@ -139,17 +139,14 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       // size styles
       [`&&-lg ${componentCls}-item-label`]: {
         minHeight: token.controlHeightLG,
-        // FIXME: hard code
         padding: `${token.segmentedPaddingVerticalLG}px ${token.segmentedPaddingHorizontal}px`,
         fontSize: token.fontSizeLG,
-        // FIXME: hard code
         lineHeight: `${token.controlHeightLG - token.segmentedPaddingVerticalLG * 2}px`,
       },
 
       [`&&-sm ${componentCls}-item-label`]: {
         minHeight: token.controlHeightSM,
-        // FIXME: hard code
-        padding: `0 ${token.controlPaddingHorizontalSM - 1}px`,
+        padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
         lineHeight: `${token.controlHeightSM - token.segmentedPaddingVerticalSM * 2}px`,
       },
 
@@ -163,11 +160,11 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         ...segmentedItemSelected(token),
 
         position: 'absolute',
-        top: 0,
-        left: 0,
+        insetBlockStart: 0,
+        insetInlineStart: 0,
         width: 0,
         height: '100%',
-        padding: '4px 0',
+        padding: `${token.paddingXXS}px 0`,
       },
 
       // transition effect when `enter-active`
